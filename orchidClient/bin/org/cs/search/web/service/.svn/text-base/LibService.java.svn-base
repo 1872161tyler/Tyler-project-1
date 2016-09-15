@@ -1,0 +1,145 @@
+package org.cs.search.web.service;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.cs.search.web.bean.Lib;
+import org.cs.search.web.dao.CollectionResult;
+
+/**
+ * 数据字典业务操作接口
+ * 
+ * @author FX
+ * @since JDK1.5
+ * @version 1.0
+ */
+public interface LibService 
+{
+	/**
+	 * 判断记录是否唯一
+	 * 
+	 * @param id  主键值
+	 * @return  判断结果，true/false
+	 */
+	public boolean isUnique(String id);
+	
+	/**
+	 * 根据主键值获得数据
+	 * 
+	 * @param id  主键值
+	 * @return Lib对象
+	 */
+	public Lib getDataByID(String id);
+	
+	/**
+	 * 将给定Lib节点的所有子节点数据树放入集合
+	 * 
+	 * @param lib 数据节点
+	 */
+	public void putData(Lib lib);
+	
+	/**
+	 * 获取下一个排序值
+	 * 
+	 * @param  pid 父节点主键值
+	 * @return  序号
+	 */
+	public int nextOrder(String pid);
+	
+	/**
+	 * 根据条件查询指定节点下的所有数据字典
+	 * 
+	 * @param pid	父节点主键值
+	 * @param offset  查询开始位置
+	 * @param size  一次查询最大行数
+	 * @return  查询结果集
+	 */
+	public CollectionResult<Lib> listLib(String pid, int offset, int size);
+	
+	/**
+	 * 根据条件查询指定节点下的所有数据字典
+	 * 
+	 * @param pid  父节点主键值
+	 * @return  查询结果集
+	 */
+	public CollectionResult<Lib> listLib(String pid);
+	
+	/**
+	 * 递归删除掉目标节点，以及其下所有子节点
+	 * 
+	 * @param id 目标主键值
+	 */
+	public void delete(String id);
+	
+	/**
+	 * 获取目标节点下的数据字典树
+	 * 
+	 * @param id  目标主键值
+	 * @return 结果集
+	 */
+	public List<Lib> getTreeDataById(String id);
+	
+	/**
+	 * 将给定的主键值集合对应的全部数据字典及其下所有子节点存入给定集合中，
+	 * 存入过程中，程序会将节点所在的树级别，添加进数据字段对象的Label属性中。
+	 * 
+	 * @param coll  目标容器集合
+	 * @param values  目标主键集合
+	 * @param header  级别符号
+	 */
+	public void setTreeData(List<Lib> coll, List<Lib> values, String header);
+	
+	/**
+	 * 将给定的主键值集合对应的全部数据字典及其下所有子节点存入给定集合中
+	 * 
+	 * @param coll  目标容器集合
+	 * @param values  目标主键集合
+	 */
+	public void setTreeData(List<Lib> coll, List<Lib> values);
+	
+	/**
+	 * 获取目标节点及其下的所有子节点集合
+	 * 
+	 * @param id  目标主键值
+	 * @return  查询结果集
+	 */
+	public List<Lib> getAllDataById(String id);
+	
+	/**
+	 * 根据给定主键值，获取其下所有节点的Key:主键-Value:对象的Map
+	 * 
+	 * @param id
+	 * @return 结果Map
+	 */
+	public LinkedHashMap<String, Lib> getDataMapById(String id);
+	
+	/**
+	 * 根据给定的主键值集合，将它们及其所有子节点以Key:主键-Value:对象的方式存入给定Map
+	 * 
+	 * @param map  目标Map对象
+	 * @param values  主键值集合
+	 */
+	public void setDataMap(LinkedHashMap<String, Lib> map, List<Lib> values);
+	
+	/**
+	 * 查找指定主键值的数据字典记录
+	 * 
+	 * @param id  主键值
+	 * @return  数据字典对象
+	 */
+	public Lib find(String id);
+	
+	/**
+	 * 根据给定的数据字典对象的各个属性值，插入一条记录到相应的表中
+	 * 
+	 * @param lib  数据字典对象
+	 */
+	public void insert(Lib lib);
+	
+	/**
+	 * 根据给定的数据字典对象的各个属性值，更新数据库对应表中的记录
+	 * 
+	 * @param lib  数据字典对象
+	 */
+	public void update(Lib lib);
+}

@@ -1,0 +1,100 @@
+package org.cs.search.web.form;
+
+/**
+ * 自定义索引库表单
+ * @author oym
+ *
+ */
+public class CustomForm {
+	
+	/**
+	 * 标题
+	 */
+	private String PRE_TITLE;//标题
+
+	/**
+	 * URL
+	 */
+	private String PRE_ID;//URL
+
+	/**
+	 * 创建时间
+	 */
+	private String PRE_CREATE_DATE;//创建时间
+
+	/**
+	 * 摘要
+	 */
+	private String summary_s;//摘要
+
+	/**
+	 * 关键词
+	 */
+	private String PRE_CONTENT;//关键字
+
+	/**
+	 * 最后修改时间
+	 */
+	private String PRE_LAST_MODIFY_DATE;//最后修改时间
+
+	/**
+	 * 优先级
+	 */
+	private int PRE_PRIORITY;//优先级
+
+	/**
+	 * 保存优先级数据用于页面显示
+	 */
+	private int count_s;//保存优先级数据用于页面显示
+
+	public int getPRE_PRIORITY() {
+		return PRE_PRIORITY;
+	}
+	public void setPRE_PRIORITY(int pREPRIORITY) {
+		PRE_PRIORITY = pREPRIORITY;
+	}
+	public int getCount_s() {
+		return count_s;
+	}
+	public void setCount_s(int countS) {
+		count_s = countS;
+	}
+	public String getPRE_LAST_MODIFY_DATE() {
+		return PRE_LAST_MODIFY_DATE;
+	}
+	public void setPRE_LAST_MODIFY_DATE(String pRELASTMODIFYDATE) {
+		PRE_LAST_MODIFY_DATE = pRELASTMODIFYDATE;
+	}
+	public String getPRE_TITLE() {
+		return PRE_TITLE;
+	}
+	public void setPRE_TITLE(String pRETITLE) {
+		PRE_TITLE = pRETITLE;
+	}
+	public String getPRE_ID() {
+		return PRE_ID;
+	}
+	public void setPRE_ID(String pREID) {
+		PRE_ID = pREID;
+	}
+	public String getPRE_CREATE_DATE() {
+		return PRE_CREATE_DATE;
+	}
+	public void setPRE_CREATE_DATE(String pRECREATEDATE) {
+		PRE_CREATE_DATE = pRECREATEDATE;
+	}
+	public String getSummary_s() {
+		return summary_s;
+	}
+	public void setSummary_s(String summaryS) {
+		summary_s = summaryS;
+	}
+	public String getPRE_CONTENT() {
+		return PRE_CONTENT;
+	}
+	public void setPRE_CONTENT(String pRECONTENT) {
+		PRE_CONTENT = pRECONTENT;
+	}
+	
+	
+}

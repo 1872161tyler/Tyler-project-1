@@ -1,0 +1,115 @@
+package org.cs.search.client.api;
+
+/**
+ * 搜索服务常量
+ * @author wangshaoping
+ *
+ */
+public class SearchServiceConst {
+	/*-------------------------------------------Key Const-----------------------------------*/
+	/**
+	 * 搜索服务器主机名称或IP
+	 */
+	public static final String HOST ="host";
+	
+	/**
+	 * zookeeper的主机名称或IP
+	 */
+	public static final String ZOOKEEPER_HOST = "zkHosts";
+	
+	/**
+	 * 搜索服务器查询端口
+	 */
+	public static final String PORT ="port";
+	
+	/**
+	 * Web 上下文路径
+	 */
+	public static final String WEB_CONTEXT_PATH ="webContextPath";
+	
+	/**
+	 * 搜索模式
+	 */
+	public static final String MODE ="mode";
+	
+	/**
+	 * 操作类型（AND:搜索时采用与关系运算，OR:搜索时采用或关系运算）
+	 */
+	public static final String OPERATION="operation";
+	
+	/**
+	 * 是否需要分词
+	 */
+	public static final String IS_SPLIT_WORDS ="isSplitWords";
+	
+	/**
+	 * 查询结果每页记录数
+	 */
+	public static final String PAGE_SIZE ="pageSize";
+	
+	/**
+	 * 是否标题高亮
+	 */
+	public static final String IS_TITLE_HIGHLIGHT ="isTitleHighLight";
+	
+	/**
+	 * 是否摘要高亮
+	 */
+	public static final String IS_SUMMARY_HIGHLIGHT ="isSummaryHighLight";
+	
+	/**
+	 * 高亮片段数
+	 */
+	public static final String HIGHLIGHT_SNIPPETS ="highlightSnippets";
+	
+	/*-------------------------------------------Value Const-----------------------------------*/
+	/**
+	 * 普通搜索模式(Autonomy)
+	 */
+	public static final String MODE_NORMAL ="org.cs.search.client.impl.autonomy.SearchServiceImpl";
+	
+	/**
+	 * 扩展搜索模式(Orchid)
+	 */
+	public static final String MODE_EXT	="org.cs.search.client.impl.orchid.SearchServiceImpl";
+	
+	/**
+	 * 缺省搜索模式(Orchid)
+	 */
+	public static final String MODE_DEFAULT =MODE_EXT;
+	
+	/**
+	 * Orchid 搜索引擎默认Web上下文路径
+	 */
+	public static final String WEB_CONTEXT_PATH_ORCHID ="orchid";
+	
+	/**
+	 * 与操作类型（搜索时采用与关系运算）
+	 */
+	public static final String OPERATION_AND ="AND";
+	
+	/**
+	 * 或操作类型（搜索时采用或关系运算）
+	 */
+	public static final String OPERATION_OR ="OR";
+	
+	/**
+	 * 是否显示摘要
+	 */
+	public static final String IS_DISPLAY_SUMMARY = "isDisplaySummary";
+	
+	/**
+	 * 是否需要分布式搜索
+	 */
+	public static final String IS_SHARDS = "isShards";
+	
+	/**
+	 * 分布式搜索服务器
+	 */
+	public static final String SHARDS = "shards";
+	
+	/**
+	 * cloud模式的默认索引集
+	 */
+	public static final String DEFAULT_COLLECTION = "defaultCollection";
+}

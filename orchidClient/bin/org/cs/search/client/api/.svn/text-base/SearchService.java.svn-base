@@ -1,0 +1,147 @@
+package org.cs.search.client.api;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.cs.search.client.api.exception.SearchServiceBuildFailedException;
+
+/**
+ * 搜索服务接口
+ * @author wangshaoping
+ *
+ */
+public interface SearchService {
+	/**
+	 * 获取搜索引擎服务器名称或IP
+	 * @return 搜索引擎服务器名称或IP
+	 */
+	public String getHost();
+	
+	/**
+	 * 设置搜索引擎服务器名称或IP
+	 * @param host 搜索引擎服务器名称或IP
+	 */
+	public void setHost(String host);
+	
+	/**
+	 * 获取搜索引擎服务器查询端口号
+	 * @return 搜索引擎服务器查询端口号
+	 */
+	public int getPort();
+	
+	/**
+	 * 设置搜索引擎服务器查询端口号
+	 * @param port 搜索引擎服务器查询端口号
+	 */
+	public void setPort(int port);
+	
+	/**
+	 * 获取搜索引擎服务器权重字符串
+	 * @return 搜索引擎服务器权重字符串
+	 */
+	public String getAuthorityProportion();
+	
+	/**
+	 * 设置搜索引擎服务器权重字符串
+	 * @param authorityProportion 搜索引擎服务器权重字符串
+	 */
+	public void setAuthorityProportion(String authorityProportion);
+	
+	/**
+	 * 获取搜索引擎服务器 Web 上下文路径
+	 * @return 搜索引擎服务器 Web 上下文路径
+	 */
+	public String getWebContextPath();
+	
+	/**
+	 * 设置搜索引擎服务器 Web 上下文路径
+	 * @param path 搜索引擎服务器 Web 上下文路径
+	 */
+	public void setWebContextPath(String path);
+	
+	/**
+	 * 构建搜索服务对象
+	 * @param properties 构建属性
+	 * @throws SearchServiceBuildFailedException 构建失败违例
+	 */
+	public void build(Properties properties) throws SearchServiceBuildFailedException;
+	
+	/**
+	 * 构建搜索服务对象,主要在 Host , Port , WebContextPath 发生变化时调用,以便更新搜索对象
+	 * @throws SearchServiceBuildFailedException 构建失败违例
+	 */
+	public void rebuild() throws SearchServiceBuildFailedException;
+	
+	/**
+	 * 搜索
+	 * @param text 搜索文本
+	 * @param parameters 查询参数
+	 * @param pagination 查询分页信息
+	 * @return 查询结果
+	 */
+	public SearchResult query(
+			String text,
+			SortField[] sorts,
+			String[] fields,
+			Map<String,String> parameters,
+			Pagination pagination) throws Exception;
+	
+	/**
+	 * 聚类统计搜索
+	 * @param text 搜索文本
+	 * @param parameters 查询参数
+	 * @param pagination 查询分页信息
+	 * @return 查询结果
+	 */
+	public SearchResult clustering(
+			String text,
+			SortField[] sorts,
+			String[] fields,
+			Map<String,String> parameters,
+			Pagination pagination) throws Exception;
+	
+	public SearchResult moreLike(String id) throws Exception;
+	
+	/**
+	 * 删除索引
+	 * @param ids 待删除索引的id的集合
+	 */
+	public void deleteById(List<String> ids) throws Exception;
+	
+	/**
+	 * 删除索引
+	 * @param ids 待删除索引的id
+	 */
+	public void deleteById(String id) throws Exception;
+	
+	/**
+	 * 通过查询语法删除索引
+	 */
+	public void deleteByQuery(String query) throws Exception;
+	
+	/**
+	 * 向索引库添加记录
+	 * 
+	 * @param params 字段/值集合
+	 * @throws Exception 操作索引库时发生错误
+	 */
+	public void addIndex(Map<String, String> params) throws Exception;
+	
+	/**
+	 * 更新索引库中的记录
+	 * 
+	 * @param params 字段/值集合
+	 * @param id 待更新记录的主键值
+	 * @throws Exception 操作索引库时发生错误
+	 */
+	public void updateIndexById(Map<String, String> params, String id) throws Exception;
+	
+	/**
+	 * 设置待操作的索引集名称
+	 * 
+	 * @param params 索引集名称
+	 */
+	public void setCollection(String collName);
+	
+}

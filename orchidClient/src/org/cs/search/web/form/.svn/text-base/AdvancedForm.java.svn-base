@@ -1,0 +1,102 @@
+package org.cs.search.web.form;
+/**
+ * 高级搜索类
+ * @author oym
+ *
+ */
+public class AdvancedForm {
+	/**
+	 * 全部关键字
+	 */
+	private String allKeyWords;
+	/**
+	 * 任意关键字
+	 */
+	private String wilfullyKeyWords;
+	/**
+	 * 不包含的关键字
+	 */
+	private String exclusiveKeyWords;
+	/**
+	 * 搜索排序
+	 */
+	private String sortField;
+	/**
+	 * 时间限制
+	 */
+	private int limit;
+	/**
+	 * 数据源
+	 */
+	private String dataSource;
+	/**
+	 * 权重类型 ：0标题权重，1内容权重
+	 */
+	private int authorityProportionType;		
+	/**
+	 * 完整关键词
+	 */
+	private String fullKeyWords;
+	
+	/**
+	 * 搜索字段范围
+	 */
+	private String[] fieldScope;
+	
+	public String getDataSource() {
+		return dataSource;
+	}
+	public void setDataSource(String dataSource) {
+		this.dataSource = dataSource;
+	}
+	public String getAllKeyWords() {
+		return allKeyWords;
+	}
+	public void setAllKeyWords(String allKeyWords) {
+		this.allKeyWords = allKeyWords;
+	}
+	public String getWilfullyKeyWords() {
+		return wilfullyKeyWords;
+	}
+	public void setWilfullyKeyWords(String wilfullyKeyWords) {
+		this.wilfullyKeyWords = wilfullyKeyWords;
+	}
+	public String getExclusiveKeyWords() {
+		return exclusiveKeyWords;
+	}
+	public void setExclusiveKeyWords(String exclusiveKeyWords) {
+		this.exclusiveKeyWords = exclusiveKeyWords;
+	}
+	public int getAuthorityProportionType() {
+		return authorityProportionType;
+	}
+	public void setAuthorityProportionType(int authorityProportionType) {
+		this.authorityProportionType = authorityProportionType;
+	}
+	public String getSortField() {
+		return sortField;
+	}
+	public void setSortField(String sortField) {
+		this.sortField = sortField;
+	}
+	public int getLimit() {
+		return limit;
+	}
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
+	public String getFullKeyWords() {
+		return fullKeyWords;
+	}
+	public void setFullKeyWords(String fullKeyWords) {
+		this.fullKeyWords = fullKeyWords;
+	}
+	public String[] getFieldScope() {
+		return fieldScope;
+	}
+	public void setFieldScope(String[] fieldScope) {
+		this.fieldScope = fieldScope;
+	}
+	
+
+}

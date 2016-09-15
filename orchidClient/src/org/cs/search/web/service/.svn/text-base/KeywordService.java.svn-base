@@ -1,0 +1,42 @@
+package org.cs.search.web.service;
+
+import java.util.List;
+
+/**
+ * 关键词索引库操作接口
+ * 
+ * @author FX
+ * @since JDK1.5
+ * @version 1.0
+ */
+public interface KeywordService 
+{
+	/**
+	 * 保存用户输入的关键词
+	 * 
+	 * @param q		关键词
+	 * @param ip	用户IP
+	 */
+	public void saveKeyword(String q, String ip);
+	
+	/**
+	 * 获取与给定关键词相关的词
+	 * 
+	 * @param q		关键词
+	 * @param size	相关词的最大数量
+	 * @return	相关词的集合
+	 */
+	public List<String> getRelatedKeywords(String q, int size);
+
+	/**
+	 * 获取关键词的信息
+	 * @return
+	 */
+	public List<Object[]> getKeywordinfo(int offset, int size);
+
+	public void freeChart(String path);
+}
+   
+
+
+

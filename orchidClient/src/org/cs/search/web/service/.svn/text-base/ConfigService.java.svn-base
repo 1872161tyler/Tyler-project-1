@@ -1,0 +1,80 @@
+package org.cs.search.web.service;
+
+import java.util.Properties;
+
+import org.cs.search.web.bean.Config;
+
+/**
+ * 搜索配置业务接口
+ * @author FX
+ * @since JDK1.5
+ * @version 1.0
+ */
+public interface ConfigService 
+{
+	
+	/**
+	 * 根据给定Config对象的各个属性值，向Config对应表插入一条数据
+	 * 
+	 * @param config 配置信息
+	 */
+	public void insert(Config config);
+	
+	/**
+	 * 根据配置文件(search-service.properties)初始化系统配置表
+	 */
+	public void initializeConfig();
+	
+	/**
+	 * 检查配置表是否有记录
+	 * 
+	 * @return 检查结果，true/false
+	 */
+	public boolean isExist();
+	
+	/**
+	 * 根据主键值查找配置记录
+	 * 
+	 * @param id  主键值
+	 * @return	配置信息
+	 */
+	public Config find(Long id);
+	
+	/**
+	 * 获取当前配置信息
+	 * 
+	 * @return  配置信息
+	 */
+	public Config getConfig();
+	
+	/**
+	 * 根据id获取当前配置信息，如果id值为空，则获取相应表中的第一条记录。
+	 * 如果记录不存在，程序会调用初始化方法initializeConfig，以确保配置
+	 * 信息表中至少有一条记录。
+	 * 
+	 * @param id  主键值
+	 * @return	配置信息
+	 */
+	public Config getConfigEnsureExist(Long id);
+	
+	/**
+	 * 根据给定Config对象的各个属性值，更新表中对应的记录
+	 * 
+	 * @param config 配置信息对象
+	 */
+	public void update(Config config);
+	
+	/**
+	 * 根据当前系统配置信息，获取Properties对象
+	 * @return Properties对象
+	 */
+	public Properties getProperties();
+	
+	/**
+	 * 根据给定配置信息，获取Properties对象
+	 * 
+	 * @param config 配置信息
+	 * @return Properties对象
+	 */
+	public Properties getProperties(Config config);
+}

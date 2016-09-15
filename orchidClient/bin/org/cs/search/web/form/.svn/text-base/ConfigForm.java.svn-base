@@ -1,0 +1,374 @@
+package org.cs.search.web.form;
+
+/**
+ * 搜索配置表单
+ * @author FX
+ *
+ */
+public class ConfigForm 
+{
+	/**
+	 * 主键id
+	 */
+	private Long id;		
+	
+	/**
+	 * 实现方式(orchid/autonomy)
+	 */
+	private String mode;		
+	
+	/**
+	 * 搜索引擎服务器IP
+	 */
+	private String host;
+	
+	/**
+	 * 端口号
+	 */
+	private String port;
+	
+	/**
+	 * web上下文
+	 */
+	private String webContextPath;
+	
+	/**
+	 * 关键词分词后，词与词之间的逻辑关系
+	 */
+	private String operation;
+	
+	/**
+	 * 关键词分词开关
+	 */
+	private String isSplitWords;
+	
+	/**
+	 * 标题高亮开关
+	 */
+	private String isTitleHighLight;
+	
+	/**
+	 * 摘要高亮开关
+	 */
+	private String isSummaryHighLight;
+	
+	/**
+	 * 高亮片数
+	 */
+	private String highlightSnippets;
+	
+	/**
+	 * 权限搜索开关
+	 */
+	private String isAuthoritySearch;
+	
+	/**
+	 * 搜索源模式(select|multi)
+	 */
+	private String searchSourceMode;
+	
+	/**
+	 * 创建日期
+	 */
+	private String createDate;
+	
+	/**
+	 * 是否显示摘要
+	 */
+	private String isDisplaySummary = "true";
+	
+	/**
+	 * 最小分词长度
+	 */
+	private String minLengthOfSplitword = "6";
+	
+	/**
+	 * 权重值
+	 */
+	private String authorityValue = "5";		
+	
+	/**
+	 * 关键词算法模式
+	 */
+	private String keywordAlgorithmMode = "2";		
+	
+	/**
+	 * 是否做排名搜索
+	 */
+	private String isRankingSearch;	
+	
+	/**
+	 * 聚类统计条数
+	 */
+	private String clusterSize = "200";
+	
+	/**
+	 * 相关搜索功能开关
+	 */
+	private String isRelatedSearch;	
+	
+	/**
+	 * 分布式搜索开关
+	 */
+	private String isShards;
+	
+	/**
+	 * 分布式搜索服务器 
+	 */
+	private String shards;
+	
+	/**
+	 * 当前页数
+	 */
+	private int current;
+	
+	private String zkHost;
+	
+	private String zkPort;
+	
+	public Long getId() 
+	{
+		return id;
+	}
+
+	public void setId(Long id) 
+	{
+		this.id = id;
+	}
+
+	public String getMode() 
+	{
+		return mode;
+	}
+
+	public void setMode(String mode) 
+	{
+		this.mode = mode;
+	}
+
+	public String getHost() 
+	{
+		return host;
+	}
+
+	public void setHost(String host) 
+	{
+		this.host = host;
+	}
+
+	public String getPort() 
+	{
+		return port;
+	}
+
+	public void setPort(String port) 
+	{
+		this.port = port;
+	}
+
+	public String getWebContextPath() 
+	{
+		return webContextPath;
+	}
+
+	public void setWebContextPath(String webContextPath) 
+	{
+		this.webContextPath = webContextPath;
+	}
+
+	public String getOperation() 
+	{
+		return operation;
+	}
+
+	public void setOperation(String operation) 
+	{
+		this.operation = operation;
+	}
+
+	public String getIsSplitWords() 
+	{
+		return isSplitWords;
+	}
+
+	public void setIsSplitWords(String isSplitWords) 
+	{
+		this.isSplitWords = isSplitWords;
+	}
+
+	public String getIsTitleHighLight() 
+	{
+		return isTitleHighLight;
+	}
+
+	public void setIsTitleHighLight(String isTitleHighLight) 
+	{
+		this.isTitleHighLight = isTitleHighLight;
+	}
+
+	public String getIsSummaryHighLight() 
+	{
+		return isSummaryHighLight;
+	}
+
+	public void setIsSummaryHighLight(String isSummaryHighLight) 
+	{
+		this.isSummaryHighLight = isSummaryHighLight;
+	}
+
+	public String getHighlightSnippets() 
+	{
+		return highlightSnippets;
+	}
+
+	public void setHighlightSnippets(String highlightSnippets) 
+	{
+		this.highlightSnippets = highlightSnippets;
+	}
+
+	public String getIsAuthoritySearch() 
+	{
+		return isAuthoritySearch;
+	}
+
+	public void setIsAuthoritySearch(String isAuthoritySearch) 
+	{
+		this.isAuthoritySearch = isAuthoritySearch;
+	}
+
+	public String getSearchSourceMode() 
+	{
+		return searchSourceMode;
+	}
+
+	public void setSearchSourceMode(String searchSourceMode) 
+	{
+		this.searchSourceMode = searchSourceMode;
+	}
+
+	public String getCreateDate() 
+	{
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) 
+	{
+		this.createDate = createDate;
+	}
+
+	public String getIsDisplaySummary() 
+	{
+		return isDisplaySummary;
+	}
+
+	public void setIsDisplaySummary(String isDisplaySummary) 
+	{
+		this.isDisplaySummary = isDisplaySummary;
+	}
+
+	public int getCurrent() 
+	{
+		return current;
+	}
+
+	public void setCurrent(int current) 
+	{
+		this.current = current;
+	}
+
+	public String getMinLengthOfSplitword() 
+	{
+		return minLengthOfSplitword;
+	}
+
+	public void setMinLengthOfSplitword(String minLengthOfSplitword) 
+	{
+		this.minLengthOfSplitword = minLengthOfSplitword;
+	}
+
+	public String getAuthorityValue() 
+	{
+		return authorityValue;
+	}
+
+	public void setAuthorityValue(String authorityValue) 
+	{
+		this.authorityValue = authorityValue;
+	}
+
+	public String getKeywordAlgorithmMode() 
+	{
+		return keywordAlgorithmMode;
+	}
+
+	public void setKeywordAlgorithmMode(String keywordAlgorithmMode) 
+	{
+		this.keywordAlgorithmMode = keywordAlgorithmMode;
+	}
+
+	public String getIsRankingSearch() 
+	{
+		return isRankingSearch;
+	}
+
+	public void setIsRankingSearch(String isRankingSearch) 
+	{
+		this.isRankingSearch = isRankingSearch;
+	}
+
+	public String getClusterSize() 
+	{
+		return clusterSize;
+	}
+
+	public void setClusterSize(String clusterSize) 
+	{
+		this.clusterSize = clusterSize;
+	}
+
+	public String getIsRelatedSearch() 
+	{
+		return isRelatedSearch;
+	}
+
+	public void setIsRelatedSearch(String isRelatedSearch) 
+	{
+		this.isRelatedSearch = isRelatedSearch;
+	}
+
+	public String getIsShards() 
+	{
+		return isShards;
+	}
+
+	public void setIsShards(String isShards) 
+	{
+		this.isShards = isShards;
+	}
+
+	public String getShards() 
+	{
+		return shards;
+	}
+
+	public void setShards(String shards) 
+	{
+		this.shards = shards;
+	}
+
+	public String getZkHost() {
+		return zkHost;
+	}
+
+	public void setZkHost(String zkHost) {
+		this.zkHost = zkHost;
+	}
+
+	public String getZkPort() {
+		return zkPort;
+	}
+
+	public void setZkPort(String zkPort) {
+		this.zkPort = zkPort;
+	}
+}

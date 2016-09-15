@@ -1,0 +1,145 @@
+package org.cs.search.web.form;
+
+import java.util.List;
+
+import org.cs.search.web.bean.Lib;
+
+/**
+ * 数据字典表单
+ * @author 哲人软件
+ *
+ */
+public class LibForm 
+{
+	/**
+	 * 主键编号（值）
+	 */
+	private String id;		
+	
+	/**
+	 * 父ID
+	 */
+	private String pid = "ROOT_LIB";
+	
+	/**
+	 * 显示数据
+	 */
+	private String label;
+	
+	/**
+	 * 备注
+	 */
+	private String memo;
+	
+	/**
+	 * 排序
+	 */
+	private int lorder;
+	
+	/**
+	 * 预留字段-数字
+	 */
+	private int storeNum;
+	
+	/**
+	 * 预留字段-字符串
+	 */
+	private String storeString;
+	
+	/**
+	 * 数据值
+	 */
+	private List<Lib> values;
+	
+	private int current;		//当前页（分页）
+	
+	public String getMemo() 
+	{
+		return memo;
+	}
+
+	public void setMemo(String memo) 
+	{
+		this.memo = memo;
+	}
+
+	public int getLorder() 
+	{
+		return lorder;
+	}
+
+	public void setLorder(int lorder) 
+	{
+		this.lorder = lorder;
+	}
+
+	public String getPid() 
+	{
+		return pid;
+	}
+
+	public void setPid(String pid) 
+	{
+		this.pid = pid;
+	}
+
+	public List<Lib> getValues() 
+	{
+		return values;
+	}
+
+	public void setValues(List<Lib> values) 
+	{
+		this.values = values;
+	}
+
+	public String getId() 
+	{
+		return id;
+	}
+
+	public void setId(String id) 
+	{
+		this.id = id;
+	}
+
+	public String getLabel() 
+	{
+		return label;
+	}
+
+	public void setLabel(String label) 
+	{
+		this.label = label;
+	}
+
+	public int getCurrent() 
+	{
+		return current;
+	}
+
+	public void setCurrent(int current) 
+	{
+		this.current = current;
+	}
+
+	public int getStoreNum() 
+	{
+		return storeNum;
+	}
+
+	public void setStoreNum(int storeNum) 
+	{
+		this.storeNum = storeNum;
+	}
+
+	public String getStoreString() 
+	{
+		return storeString;
+	}
+
+	public void setStoreString(String storeString) 
+	{
+		this.storeString = storeString;
+	}
+}

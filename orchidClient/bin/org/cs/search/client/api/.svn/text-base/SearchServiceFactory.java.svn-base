@@ -1,0 +1,87 @@
+package org.cs.search.client.api;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import org.cs.search.client.api.exception.SearchServiceImplNotFoundException;
+
+/**
+ * 搜索服务工厂
+ * @author wangshaoping
+ *
+ */
+public class SearchServiceFactory {
+	private static Map<String,SearchService> services =new HashMap<String,SearchService>();
+	
+	/**
+	 * 构建搜索服务对象
+	 * @return 搜索服务对象
+	 * @throws SearchServiceImplNotFoundException 服务实现未找到
+	 */
+	public static SearchService getSearchService() throws Exception{
+		InputStream ins =SearchServiceFactory.class.getResourceAsStream("/search-service.properties");
+		if(ins!=null){
+			Properties properties =new Properties();
+			properties.load(ins);
+			ins.close();
+			return getSearchService(properties);
+		}else{
+			throw new Exception("search-service.properties File Not Found");
+		}
+	}
+	
+	/**
+	 * 构建搜索服务对象
+	 * @param properties 搜索服务对象的配置信息
+	 * @return 搜索服务对象
+	 * @throws SearchServiceImplNotFoundException 服务实现未找到
+	 */
+	public static SearchService getSearchService(Properties properties) throws SearchServiceImplNotFoundException{
+		String mode =properties.getProperty(SearchServiceConst.MODE);
+		if(mode==null || "".equals(mode.trim())){
+			mode =SearchServiceConst.MODE_DEFAULT;
+		}
+		SearchService service =services.get(mode);
+		if(service==null){
+			try {
+				service = (SearchService)Class.forName(mode).newInstance();
+				service.build(properties);
+				services.put(mode, service);
+			} catch (Exception e) {
+				throw new SearchServiceImplNotFoundException(e);
+			}
+		}
+		return service;
+	}
+	
+	/**
+	 *重构搜索服务对象
+	 * @param properties 搜索服务对象的配置信息
+	 * @throws SearchServiceImplNotFoundException 服务实现未找到
+	 */
+	public static void rebuildSearchService(Properties properties) throws SearchServiceImplNotFoundException
+	{
+		String mode =properties.getProperty(SearchServiceConst.MODE);
+		if(mode==null || "".equals(mode.trim()))
+		{
+			mode =SearchServiceConst.MODE_DEFAULT;
+		}
+		try 
+		{
+			synchronized(services)
+			{
+				if(services.containsKey(mode))
+					services.remove(mode);
+				SearchService service = (SearchService)Class.forName(mode).newInstance();
+				service.build(properties);
+				services.put(mode, service);
+			}
+		}
+		catch (Exception e) 
+		{
+			throw new SearchServiceImplNotFoundException(e);
+		}
+	}
+}

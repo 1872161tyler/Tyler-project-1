@@ -1,0 +1,91 @@
+package org.cs.search.web.service;
+
+import java.io.IOException;
+import java.util.Map;
+
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.common.SolrInputDocument;
+import org.cs.search.client.api.Pagination;
+import org.cs.search.client.api.SearchResult;
+import org.cs.search.client.api.SortField;
+import org.cs.search.client.api.exception.SearchServiceBuildFailedException;
+import org.cs.search.web.form.CustomForm;
+import org.cs.search.web.form.SearchForm;
+
+/**
+ * 自定义排名搜索接口
+ * 
+ * @author OYM
+ */
+public interface CustomService {
+	
+	/**
+	 * 根据条件得到索引库中的结果集
+	 * 
+	 * @param text 关键字
+	 * @param sorts 排序字段
+	 * @param fields 返回字段
+	 * @param parameters 其他参数
+	 * @param pagination 分页信息
+	 * @return 搜索结果集
+	 * @throws Exception 如果搜索过程中发生异常
+	 */
+	public SearchResult query(String text,
+			SortField[] sorts,
+			String[] fields,
+			Map<String, String> parameters,
+			Pagination pagination) throws Exception ;
+	
+	/**
+	 * 添加自定义索引库索引
+	 * 
+	 * @param custormF 自定义索引表单
+	 */
+	public void addCustomIndex(CustomForm custormF) throws SolrServerException, IOException, SearchServiceBuildFailedException ;
+	
+	/**
+	 * 查找自定义索引库索引集合
+	 * 
+	 * @param searchform 搜索表单
+	 * @param size	一次搜索的最大条数
+	 * @return 搜索结果集
+	 * @throws IOException 
+	 * @throws Exception 
+	 */
+	public SearchResult selectCustomIndexList(SearchForm searchform, int size) throws IOException, Exception;
+	
+	/**
+	 * 查找自定义索引库索引集合
+	 * 
+	 * @param searchform 搜索表单
+	 * @return	搜索结果集
+	 * @throws IOException 
+	 * @throws Exception 
+	 */
+	public SearchResult selectCustomIndexList(SearchForm searchform) throws IOException, Exception;
+	
+	/**
+	 * 构建SolrInputDocument类
+	 * 
+	 * @param custormF 自定义索引表单
+	 * @return SolrInputDocument对象
+	 */
+	public SolrInputDocument getSolrInputDocument(CustomForm custormF);
+	
+	/**
+	 * 修改索引库索引
+	 * @param custormF 自定义索引表单
+	 * @param oldURL  要修改的索引url
+	 * @throws SearchServiceBuildFailedException  如果构建SearchService对象时发生异常 
+	 */
+	public void updateCustomIndex(CustomForm custormF,String oldURL) throws SolrServerException, IOException, SearchServiceBuildFailedException ;
+	
+	/**
+	 * 删除索引库索引
+	 * @param urlD  待删除索引的url
+	 * @throws SearchServiceBuildFailedException 如果构建SearchService对象时发生异常
+	 * @throws IOException 
+	 * @throws SolrServerException  如果Solr服务发生异常
+	 */
+	public void deleteCustomIndex(String urlD) throws IOException, SearchServiceBuildFailedException, SolrServerException;
+}

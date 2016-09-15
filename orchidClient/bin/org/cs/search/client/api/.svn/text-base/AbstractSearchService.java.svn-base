@@ -1,0 +1,113 @@
+package org.cs.search.client.api;
+
+public abstract class AbstractSearchService implements SearchService{
+	protected static final int DEFAULT_PAGE_SIZE =20;				//缺省查询结果每页记录数
+	protected static final int DEFAULT_HIGHLIGHT_SNIPPETS =2;		//缺省高亮片段数
+	
+	protected String host;											//主机
+	protected int port;												//端口
+	protected String zkHosts;										//zookeeper主机IP
+	protected String defaultCollection;								//默认索引集名称
+	protected String webContextPath;								//Web 上下文路径
+	protected String operation =SearchServiceConst.OPERATION_OR;	//操作方式
+	protected boolean splitWords =false;							//是否进行分词
+	protected int pageSize;											//查询结果每页记录数
+	protected boolean isTitleHighLight =true;						//是否需要标题高亮
+	protected boolean isSummaryHighLight =true;						//是否需要摘要高亮
+	protected int highlightSnippets;								//高亮片断数
+	protected String authorityProportion ="PRE_TITLE^0.5 PRE_CONTENT^0.5";		//权重字符串
+	protected boolean isDisplaySummary =true;						//是否需要显示高亮
+	protected boolean isShards = true;
+	protected String shards = null;
+	
+	public boolean isShards() {
+		return isShards;
+	}
+	public void setShards(boolean isShards) {
+		this.isShards = isShards;
+	}
+	public String getShards() {
+		return shards;
+	}
+	public void setShards(String shards) {
+		this.shards = shards;
+	}
+	public String getHost() {
+		return host;
+	}
+	public void setHost(String host) {
+		this.host = host;
+	}
+	public int getPort() {
+		return port;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	public String getWebContextPath() {
+		return webContextPath;
+	}
+	public void setWebContextPath(String webContextPath) {
+		this.webContextPath = webContextPath;
+	}
+	public String getOperation() {
+		return operation;
+	}
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+	public boolean isSplitWords() {
+		return splitWords;
+	}
+	public void setSplitWords(boolean splitWords) {
+		this.splitWords = splitWords;
+	}
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	public boolean isTitleHighLight() {
+		return isTitleHighLight;
+	}
+	public void setTitleHighLight(boolean isTitleHighLight) {
+		this.isTitleHighLight = isTitleHighLight;
+	}
+	public boolean isSummaryHighLight() {
+		return isSummaryHighLight;
+	}
+	public void setSummaryHighLight(boolean isSummaryHighLight) {
+		this.isSummaryHighLight = isSummaryHighLight;
+	}
+	public int getHighlightSnippets() {
+		return highlightSnippets;
+	}
+	public void setHighlightSnippets(int highlightSnippets) {
+		this.highlightSnippets = highlightSnippets;
+	}
+	public String getAuthorityProportion() {
+		return authorityProportion;
+	}
+	public void setAuthorityProportion(String authorityProportion) {
+		this.authorityProportion = authorityProportion;
+	}
+	public boolean isDisplaySummary() {
+		return isDisplaySummary;
+	}
+	public void setDisplaySummary(boolean isDisplaySummary) {
+		this.isDisplaySummary = isDisplaySummary;
+	}
+	public String getZkHosts() {
+		return zkHosts;
+	}
+	public void setZkHosts(String zkHosts) {
+		this.zkHosts = zkHosts;
+	}
+	public String getDefaultCollection() {
+		return defaultCollection;
+	}
+	public void setDefaultCollection(String defaultCollection) {
+		this.defaultCollection = defaultCollection;
+	}
+}

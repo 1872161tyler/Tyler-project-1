@@ -1,0 +1,39 @@
+package org.cs.search.web.service;
+
+import java.util.Properties;
+
+import org.cs.search.client.api.SearchService;
+import org.cs.search.web.bean.Config;
+
+/**
+ * 搜索服务对象助手，提供获取搜索服务对象的服务
+ * 
+ * @author FX
+ * @since JDK1.5
+ * @version 1.0
+ */
+public interface SearchHelperService 
+{
+	/**
+	 * 根据给定配置，获取搜索服务对象
+	 * 
+	 * @param config  配置信息
+	 * @return  搜索服务对象
+	 */
+	public SearchService getSearchService(Config config);
+	
+	/**
+	 * 根据给定属性配置文件，获取搜索服务对象
+	 * 
+	 * @param properties  属性配置文件
+	 * @return  搜索服务对象
+	 */
+	public SearchService getSearchService(Properties properties);
+	
+	/**
+	 * 获取搜索服务对象，程序会返回系统启动时自动加载到内存中的搜索服务对象
+	 * 
+	 * @return 搜索服务对象
+	 */
+	public SearchService getSearchService();
+}
